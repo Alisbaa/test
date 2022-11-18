@@ -1,26 +1,36 @@
 ﻿#include <iostream>
-#include <list>     
-#include <iterator> 
-#include <ctime>
-#include <cstdlib>
+#include <list>
 using namespace std;
 
-int main()
+//function to input the list
+list<int> inputList()
 {
-    list<int> myList;
-    for (int i = 0; i < 15; i++)
+    list<int> l;
+    int n;
+    cout << "Enter the number of elements in the list: ";
+    cin >> n;
+    cout << "Enter the elements of the list: ";
+    for (int i = 0; i < n; i++)
     {
-        myList.push_back(rand() % 20);
+        int x;
+        cin >> x;
+        l.push_back(x);
     }
+    return l;
+}
 
-    cout << "List: ";
-    for (list<int>::iterator it = myList.begin(); it != myList.end(); it++)
-    {
-        cout << *it << " ";
+//function that finds the smallest number in a list
+int findBiggest(list<int> l) {
+    int biggest = 0;
+    for (auto i : l) {
+        if (i > biggest) {
+            biggest = i;
+        }
     }
-        int max = myList.front();
-        for (auto l : myList)
-            if (max < l) max = l;
-        cout << "max: " << max << endl;
-    
+    return biggest;
+}
+
+int main() {
+    cout << findBiggest(inputList());
+    return 0;
 }
