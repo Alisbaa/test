@@ -20,17 +20,17 @@ list<int> inputList()
 }
 
 //function that finds the smallest number in a list
-int findBiggest(list<int> l) {
-    int biggest = 0;
+int findSmallest(list<int> l) {
+    int smallest = 2147483647;
     for (auto i : l) {
-        if (i > biggest) {
-            biggest = i;
+        if (i < smallest) {
+            smallest = i;
         }
     }
-    return biggest;
+    return smallest;
 }
 
 int main() {
-    cout << findBiggest(inputList());
+    cout << findSmallest(inputList());
     return 0;
 }
